@@ -221,7 +221,7 @@ public final class UserToolchain: Toolchain {
         self.xctest = nil
       #endif
 
-        self.extraSwiftCFlags = (destination.target.isDarwin()
+        self.extraSwiftCFlags = (destination.target.isDarwin() || destination.target.isLinux()
                                     ? ["-sdk", destination.sdk.pathString]
                                     : [])
                                   + destination.extraSwiftCFlags
